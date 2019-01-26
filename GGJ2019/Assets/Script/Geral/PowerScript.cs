@@ -18,10 +18,6 @@ public class PowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(callItemBack)
-        {
-            CallBack();
-        }
     }
 
     public void FindObjects()
@@ -39,6 +35,10 @@ public class PowerScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             items[i].SetActive(false);
+            if(i == items.Count-1)
+            {
+                StartCoroutine("CallBack");
+            }
         }
         callItemBack = true;
 
