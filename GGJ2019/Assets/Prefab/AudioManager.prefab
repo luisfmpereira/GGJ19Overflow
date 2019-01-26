@@ -43,4 +43,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf78d2590f7efd42ba6e9d6c4862f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: TriggerDown
+    clip: {fileID: 8300000, guid: ff00a0dc677034ef690f9383eeb6acda, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: TriggerUp
+    clip: {fileID: 8300000, guid: b47967157ad914899bbd4f935d41b90e, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Grab
+    clip: {fileID: 8300000, guid: c1cf3d0657f0546a6850d1a5142c4735, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Drop
+    clip: {fileID: 8300000, guid: fb55b4f0b03c54ecc9ccbaae855fe9d6, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0

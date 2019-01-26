@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private float xRange;
     private float zRange; 
     private Color color;
+    private AudioManager audioManager;
 
 
 
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         xRange = 1280 * 3.5f;
         zRange = 720 * 3.5f;
         forward = Camera.main.transform.forward;
@@ -63,6 +65,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Hold") && !isholding)
+        {
+            interaction.GetComponentInChildren<Text>().text = "Hold";
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Hold") && !isholding)
@@ -78,12 +87,14 @@ public class PlayerController : MonoBehaviour
         CloseObject.transform.SetParent(this.transform);
         interaction.GetComponentInChildren<Text>().text = "Drop";
         isholding = true;
+        audioManager.PlaySound("Grab");
     }
     public void DropItem()
     {
         interaction.GetComponentInChildren<Text>().text = "Action";
         CloseObject.transform.SetParent(null);
         isholding = false;
+        audioManager.PlaySound("Drop");
     }
 
     IEnumerator UpdateFog()

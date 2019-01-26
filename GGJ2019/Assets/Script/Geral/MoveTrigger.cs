@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveTrigger : MonoBehaviour
 {
+    private AudioManager audioManager;
     private int count;
     public bool willOpenDoor;
     [Header("OpenDoor")]
@@ -23,6 +24,7 @@ public class MoveTrigger : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         leftClose = leftDoor.transform.position;
         rightClose = rightDoor.transform.position;
         leftOpen = leftDoor.transform.position;
@@ -47,6 +49,7 @@ public class MoveTrigger : MonoBehaviour
     {
         if (count == 0)
         {
+            audioManager.PlaySound("TriggerDown");
             this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, 0.01f, this.transform.position.z), 3);
             iTween.MoveTo(leftDoor, openLeftDoor);
             iTween.MoveTo(rightDoor, openRightDoor);
@@ -59,6 +62,7 @@ public class MoveTrigger : MonoBehaviour
     {
         if(count == 1)
         {
+            audioManager.PlaySound("TriggerUp");
             this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, 0.05f, this.transform.position.z), 3);
             iTween.MoveTo(leftDoor, closeLeftDoor);
             iTween.MoveTo(rightDoor, closeRightDoor);

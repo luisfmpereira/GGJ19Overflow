@@ -426,11 +426,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1809740014123824546, guid: ad71943fa2b1d46f79f1318d81b14d93,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 4670882130423548312, guid: ad71943fa2b1d46f79f1318d81b14d93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,21 +493,6 @@ PrefabInstance:
       objectReference: {fileID: 1760140269}
     - target: {fileID: 2782914431055376508, guid: ad71943fa2b1d46f79f1318d81b14d93,
         type: 3}
-      propertyPath: isholding
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2782914431055376508, guid: ad71943fa2b1d46f79f1318d81b14d93,
-        type: 3}
-      propertyPath: minAndMaxDistance.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2782914431055376508, guid: ad71943fa2b1d46f79f1318d81b14d93,
-        type: 3}
-      propertyPath: minAndMaxDistance.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2782914431055376508, guid: ad71943fa2b1d46f79f1318d81b14d93,
-        type: 3}
       propertyPath: safeZone
       value: 
       objectReference: {fileID: 1517032460}
@@ -521,23 +501,6 @@ PrefabInstance:
       propertyPath: fog
       value: 
       objectReference: {fileID: 1941170918}
-    - target: {fileID: 31339802042769734, guid: ad71943fa2b1d46f79f1318d81b14d93,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 534669905, guid: ad71943fa2b1d46f79f1318d81b14d93, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 534669905, guid: ad71943fa2b1d46f79f1318d81b14d93, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 534669905, guid: ad71943fa2b1d46f79f1318d81b14d93, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad71943fa2b1d46f79f1318d81b14d93, type: 3}
 --- !u!1 &574778447 stripped
