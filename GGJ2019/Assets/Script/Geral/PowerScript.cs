@@ -7,6 +7,8 @@ public class PowerScript : MonoBehaviour
     public List<GameObject> items;
     public List<GameObject> itemsBack;
     public float cd;
+    private bool callItemBack;
+    
 
     void Start()
     {
@@ -16,14 +18,17 @@ public class PowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(callItemBack)
+        {
+            CallBack();
+        }
     }
 
     public void FindObjects()
     {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Disappear"))
         {
-            items.Add(go);  
+            items.Add(go);
         }
         StartCoroutine(DisableObjects());
     }
@@ -33,16 +38,22 @@ public class PowerScript : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             yield return new WaitForSeconds(1);
-            int random = Random.Range(0, items.Count);
-            items[random].SetActive(false);
-            itemsBack.Add(items[random]);
-            items.RemoveAt(random);
+            items[i].SetActive(false);
         }
-        yield return new WaitForSeconds(cd);
-        for (int i = 0; i < itemsBack.Count; i++)
+        callItemBack = true;
+
+    }
+
+    public IEnumerator CallBack()
+
+    {
+        yield return new WaitForSeconds(items.Count + 2);
+        for (int i = 0; i < items.Count; i++)
         {
-            itemsBack[i].SetActive(true);
+            yield return new WaitForSeconds(1);
+            items[i].SetActive(true);
         }
+
     }
 
 }
