@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class JumpPlayer : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public float force;
-    
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player");
+    }
     // Start is called before the first frame update
     void Start()
     {

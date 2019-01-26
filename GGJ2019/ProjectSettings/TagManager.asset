@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hold
   - TriggerButton
+  - Box
+  - Disappear
   layers:
   - Default
   - TransparentFX

@@ -5,20 +5,37 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    
     public float speedMovement;
     public Joystick joystick;
     public Button interaction;
     public bool isholding;
     private GameObject CloseObject;
     Vector3 forward, right;
+    [Header("SafeZone")]
+    public bool willUseSafeZone;
+    public GameObject safeZone;
+    private float distanceFog;
+    public Vector2 minAndMaxDistance;
+    public Image fog;
+    private float xRange;
+    private float zRange; 
+    private Color color;
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        xRange = 1280 * 3.5f;
+        zRange = 720 * 3.5f;
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+        if(willUseSafeZone)
+        StartCoroutine(UpdateFog());
     }
 
     // Update is called once per frame
@@ -57,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     public void GrabItem()
     {
+        Debug.Log(CloseObject);
         CloseObject.transform.SetParent(this.transform);
         interaction.GetComponentInChildren<Text>().text = "Drop";
         isholding = true;
@@ -66,5 +84,20 @@ public class PlayerController : MonoBehaviour
         interaction.GetComponentInChildren<Text>().text = "Action";
         CloseObject.transform.SetParent(null);
         isholding = false;
+    }
+
+    IEnumerator UpdateFog()
+    {
+        while (true)
+        {
+            
+            distanceFog = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.z), new Vector2(safeZone.transform.position.x, safeZone.transform.position.z));
+            float porc = distanceFog / (minAndMaxDistance.y ) ;
+            fog.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Max(1280, (xRange * (1 - porc))), Mathf.Max(720, (zRange * (1 - porc))));
+            color.a = porc * 2;
+                fog.color = color;
+            yield return new WaitForSeconds(0.02f);
+        
+        }
     }
 }

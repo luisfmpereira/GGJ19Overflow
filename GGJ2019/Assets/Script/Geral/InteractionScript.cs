@@ -6,10 +6,11 @@ public class InteractionScript : MonoBehaviour
 {
     public int actualMode;
     //0 - nothing, 1 - hold, 2 - holding;
-    public GameObject player;
+    private GameObject player;
     private PlayerController playerController;
     private void Awake()
     {
+        player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
     }
 
