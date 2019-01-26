@@ -50,15 +50,18 @@ public class MoveTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if (count == 0)
         {
-            if (myId == other.GetComponent<BoxId>().Id)
-            {
-                audioManager.PlaySound("TriggerDown");
-                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                    new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
-                iTween.MoveTo(leftDoor, openLeftDoor);
-                iTween.MoveTo(rightDoor, openRightDoor);
+            if (other.CompareTag("Hold")){
+                if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
+                {
+                    audioManager.PlaySound("TriggerDown");
+                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                        new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
+                    iTween.MoveTo(leftDoor, openLeftDoor);
+                    iTween.MoveTo(rightDoor, openRightDoor);
+                }
             }
         }
         count++;
@@ -71,7 +74,7 @@ public class MoveTrigger : MonoBehaviour
         {
             if (count == 1)
             {
-                if (myId == other.GetComponent<BoxId>().Id)
+                if (myId == other.GetComponentInParent<BoxId>().Id)
                 {
                     audioManager.PlaySound("TriggerUp");
                     this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,

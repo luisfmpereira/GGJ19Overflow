@@ -22,6 +22,7 @@ public class PowerScript : MonoBehaviour
 
     public void FindObjects()
     {
+        Global.powerIsActive = true;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Disappear"))
         {
             items.Add(go);
@@ -53,7 +54,7 @@ public class PowerScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             items[i].SetActive(true);
         }
-
+        Global.powerIsActive = false;
     }
 
 }

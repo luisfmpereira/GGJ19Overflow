@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        Debug.Log(last);
     }
 
     void Move()
