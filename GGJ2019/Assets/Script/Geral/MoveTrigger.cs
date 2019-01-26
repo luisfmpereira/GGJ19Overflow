@@ -6,9 +6,10 @@ public class MoveTrigger : MonoBehaviour
 {
     private AudioManager audioManager;
     private int count;
-    public bool willOpenDoor;
+
     public bool onlyActive;
     [Header("OpenDoor")]
+    public bool willOpenDoor;
     public GameObject leftDoor;
     public GameObject rightDoor;
     private Vector3 leftClose;
@@ -19,6 +20,10 @@ public class MoveTrigger : MonoBehaviour
     public float timeToOpen;
     [Header("ID")]
     public int myId;
+    [Header("Path")]
+    public bool willChoosePath;
+    public GameObject gameController;
+    public Material pathMaterial;
 
     Hashtable openLeftDoor = new Hashtable();
     Hashtable openRightDoor = new Hashtable();
@@ -59,8 +64,16 @@ public class MoveTrigger : MonoBehaviour
                     audioManager.PlaySound("TriggerDown");
                     this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
                         new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
-                    iTween.MoveTo(leftDoor, openLeftDoor);
-                    iTween.MoveTo(rightDoor, openRightDoor);
+                    if (willOpenDoor)
+                    {
+                        iTween.MoveTo(leftDoor, openLeftDoor);
+                        iTween.MoveTo(rightDoor, openRightDoor);
+                    }
+                    else if (willChoosePath)
+                    {
+                        gameController.GetComponent<GameControllerChapter2>().triggerCount++;
+                        gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
+                    }
                 }
             }
         }
