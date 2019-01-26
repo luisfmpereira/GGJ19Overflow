@@ -5,6 +5,9 @@ using UnityEngine;
 public class PowerScript : MonoBehaviour
 {
     public List<GameObject> items;
+    public List<GameObject> itemsBack;
+    public float cd;
+
     void Start()
     {
 
@@ -27,17 +30,19 @@ public class PowerScript : MonoBehaviour
 
     public IEnumerator DisableObjects()
     {
-        yield return new WaitForSeconds(Random.Range(0.5f, 2));
-        int random = Random.Range(0, items.Count);
-        items[random].SetActive(false);
-        items.RemoveAt(random);
-        yield return new WaitForSeconds(Random.Range(0.5f, 2));
-        random = Random.Range(0, items.Count);
-        items[random].SetActive(false);
-        items.RemoveAt(random);
-        yield return new WaitForSeconds(Random.Range(0.5f, 2));
-        random = Random.Range(0, items.Count);
-        items[random].SetActive(false);
-        items.RemoveAt(random);
+        for (int i = 0; i < items.Count; i++)
+        {
+            yield return new WaitForSeconds(1);
+            int random = Random.Range(0, items.Count);
+            items[random].SetActive(false);
+            itemsBack.Add(items[random]);
+            items.RemoveAt(random);
+        }
+        yield return new WaitForSeconds(cd);
+        for (int i = 0; i < itemsBack.Count; i++)
+        {
+            itemsBack[i].SetActive(true);
+        }
     }
+
 }

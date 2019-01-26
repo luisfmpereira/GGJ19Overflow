@@ -17,7 +17,7 @@ public class npcBehaviour : MonoBehaviour
 
     void Update()
     {
-        NPC.transform.position = Vector2.MoveTowards(new Vector2(this.transform.position.x,this.transform.position.z),
-        new Vector2(player.transform.position.x,player.transform.position.z), approachSpeed * Time.deltaTime);
+        NPC.transform.position = Vector3.MoveTowards(new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),
+                                                     new Vector3(player.transform.position.x,this.transform.position.y,player.transform.position.z), approachSpeed * Time.deltaTime);
     }
 }

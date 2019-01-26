@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    private int count;
     public float force;
     public float speedMovement;
     public Joystick joystick;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Color color;
     private AudioManager audioManager;
     public bool isWalking;
+    private GameObject last;
 
 
 
@@ -47,7 +49,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-
+        Debug.Log(last);
     }
 
     void Move()
@@ -71,10 +73,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hold")) 
+        if (other.CompareTag("Hold") && !isholding) 
         {
+            if (last == null)
+                last = other.gameObject.transform.parent.gameObject;
             interaction.GetComponentInChildren<Text>().text = "Hold";
-            interaction.GetComponent<InteractionScript>().actualMode = 1;        
+            interaction.GetComponent<InteractionScript>().actualMode = 1;
             CloseObject = other.gameObject.transform.parent.gameObject;
         }
         if (other.CompareTag("ChangeScene"))
@@ -96,13 +100,14 @@ public class PlayerController : MonoBehaviour
         {
             interaction.GetComponentInChildren<Text>().text = "Action";
             interaction.GetComponent<InteractionScript>().actualMode = 0;
+            last = null;
         }
     }
 
     public void GrabItem()
     {
         Debug.Log(CloseObject);
-        CloseObject.transform.SetParent(this.transform);
+        last.transform.SetParent(this.transform);
         interaction.GetComponentInChildren<Text>().text = "Drop";
         isholding = true;
         audioManager.PlaySound("Grab");
@@ -110,7 +115,7 @@ public class PlayerController : MonoBehaviour
     public void DropItem()
     {
         interaction.GetComponentInChildren<Text>().text = "Action";
-        CloseObject.transform.SetParent(null);
+        last.transform.SetParent(null);
         isholding = false;
         audioManager.PlaySound("Drop");
     }
