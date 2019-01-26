@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
         }
         transform.position += rightMovent;
         transform.position += upMovement;
-        Debug.Log(rightMovent);
-        Debug.Log(upMovement);
     }
 
     private void OnTriggerEnter(Collider other)

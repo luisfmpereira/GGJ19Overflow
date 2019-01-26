@@ -7,6 +7,7 @@ public class FadeInAndOut : MonoBehaviour
 {
     public float speedFade;
     private Color colorT;
+    public float change;
     private void Awake()
     {
         colorT = this.GetComponent<Image>().color;
@@ -15,7 +16,7 @@ public class FadeInAndOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (colorT.a  > 0.5)
+        if (colorT.a  > change)
          {       
             colorT.a -= speedFade * Time.deltaTime;
             this.GetComponent<Image>().color = colorT;
