@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ModelTextScript : MonoBehaviour
 {
     private TextMeshProUGUI text;
@@ -10,10 +11,13 @@ public class ModelTextScript : MonoBehaviour
     public float speedFade;
     public float timeToEnd;
     private bool canEnd;
+    public bool changeName;
 
     private void Awake()
     {
         text = this.GetComponent<TextMeshProUGUI>();
+        if (changeName)
+            this.text.text = "Level " + (SceneManager.GetActiveScene().buildIndex + 1);
     }
     private void OnEnable()
     {

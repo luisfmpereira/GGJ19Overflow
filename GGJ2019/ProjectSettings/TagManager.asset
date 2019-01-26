@@ -8,6 +8,7 @@ TagManager:
   - TriggerButton
   - Box
   - Disappear
+  - ChangeScene
   layers:
   - Default
   - TransparentFX

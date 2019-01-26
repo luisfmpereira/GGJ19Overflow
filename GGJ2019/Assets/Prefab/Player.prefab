@@ -189,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02e8e7c4a519a4d6f80f61ff89c7a636, type: 2}
+  - {fileID: 2100000, guid: 7ba1388c43c5641278564c06d3b7c890, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 2.5
-  speedMovement: 3
+  speedMovement: 5
   joystick: {fileID: 0}
   interaction: {fileID: 0}
   isholding: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Color color;
     private AudioManager audioManager;
     public bool isWalking;
+
 
 
 
@@ -74,6 +76,10 @@ public class PlayerController : MonoBehaviour
             interaction.GetComponentInChildren<Text>().text = "Hold";
             interaction.GetComponent<InteractionScript>().actualMode = 1;        
             CloseObject = other.gameObject.transform.parent.gameObject;
+        }
+        if (other.CompareTag("ChangeScene"))
+        {
+            SceneManager.LoadScene(other.GetComponent<ChangeScene>().nextScene);
         }
     }
 
