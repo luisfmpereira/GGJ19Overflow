@@ -17,6 +17,8 @@ public class MoveTrigger : MonoBehaviour
     private Vector3 rightOpen;
     public float timeToClose;
     public float timeToOpen;
+    [Header("ID")]
+    public int myId;
 
     Hashtable openLeftDoor = new Hashtable();
     Hashtable openRightDoor = new Hashtable();
@@ -50,11 +52,14 @@ public class MoveTrigger : MonoBehaviour
     {
         if (count == 0)
         {
-            audioManager.PlaySound("TriggerDown");
-            this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
-            iTween.MoveTo(leftDoor, openLeftDoor);
-            iTween.MoveTo(rightDoor, openRightDoor);
+            if (myId == other.GetComponent<BoxId>().Id)
+            {
+                audioManager.PlaySound("TriggerDown");
+                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                    new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
+                iTween.MoveTo(leftDoor, openLeftDoor);
+                iTween.MoveTo(rightDoor, openRightDoor);
+            }
         }
         count++;
        
@@ -66,11 +71,14 @@ public class MoveTrigger : MonoBehaviour
         {
             if (count == 1)
             {
-                audioManager.PlaySound("TriggerUp");
-                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, 
-                    new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
-                iTween.MoveTo(leftDoor, closeLeftDoor);
-                iTween.MoveTo(rightDoor, closeRightDoor);
+                if (myId == other.GetComponent<BoxId>().Id)
+                {
+                    audioManager.PlaySound("TriggerUp");
+                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                        new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
+                    iTween.MoveTo(leftDoor, closeLeftDoor);
+                    iTween.MoveTo(rightDoor, closeRightDoor);
+                }
             }
             count--;
         }
