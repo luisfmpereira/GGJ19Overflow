@@ -52,7 +52,7 @@ public class MoveTrigger : MonoBehaviour
         {
             audioManager.PlaySound("TriggerDown");
             this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                new Vector3(this.transform.position.x, this.transform.position.y - 0.04f, this.transform.position.z), 3);
+                new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
             iTween.MoveTo(leftDoor, openLeftDoor);
             iTween.MoveTo(rightDoor, openRightDoor);
         }
@@ -68,7 +68,7 @@ public class MoveTrigger : MonoBehaviour
             {
                 audioManager.PlaySound("TriggerUp");
                 this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, 
-                    new Vector3(this.transform.position.x, this.transform.position.y + 0.04f, this.transform.position.z), 3);
+                    new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
                 iTween.MoveTo(leftDoor, closeLeftDoor);
                 iTween.MoveTo(rightDoor, closeRightDoor);
             }
