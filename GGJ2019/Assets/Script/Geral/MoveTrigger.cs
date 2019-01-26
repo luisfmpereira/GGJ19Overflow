@@ -51,7 +51,8 @@ public class MoveTrigger : MonoBehaviour
         if (count == 0)
         {
             audioManager.PlaySound("TriggerDown");
-            this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, 0.01f, this.transform.position.z), 3);
+            this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                new Vector3(this.transform.position.x, this.transform.position.y - 0.04f, this.transform.position.z), 3);
             iTween.MoveTo(leftDoor, openLeftDoor);
             iTween.MoveTo(rightDoor, openRightDoor);
         }
@@ -66,7 +67,8 @@ public class MoveTrigger : MonoBehaviour
             if (count == 1)
             {
                 audioManager.PlaySound("TriggerUp");
-                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, 0.05f, this.transform.position.z), 3);
+                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, 
+                    new Vector3(this.transform.position.x, this.transform.position.y + 0.04f, this.transform.position.z), 3);
                 iTween.MoveTo(leftDoor, closeLeftDoor);
                 iTween.MoveTo(rightDoor, closeRightDoor);
             }
