@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public float force;
     public float speedMovement;
     public Joystick joystick;
     public Button interaction;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float zRange; 
     private Color color;
     private AudioManager audioManager;
+    public bool isWalking;
 
 
 
@@ -44,15 +45,28 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+
     }
 
     void Move()
     {
         Vector3 rightMovent = joystick.Horizontal * speedMovement * Time.deltaTime * right;
         Vector3 upMovement = joystick.Vertical * speedMovement * Time.deltaTime * forward;
+
+        if ((rightMovent != Vector3.zero || upMovement != Vector3.zero) && !isWalking)
+        {
+            StartCoroutine("MoveUpAndDown");
+            isWalking = true;
+        }
+        if ((rightMovent == Vector3.zero && upMovement == Vector3.zero) && isWalking)
+        {
+            StopCoroutine("MoveUpAndDown");      
+            isWalking = false;
+        }
         transform.position += rightMovent;
         transform.position += upMovement;
-
+        Debug.Log(rightMovent);
+        Debug.Log(upMovement);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -109,6 +123,15 @@ public class PlayerController : MonoBehaviour
                 fog.color = color;
             yield return new WaitForSeconds(0.02f);
         
+        }
+    }
+
+    IEnumerator MoveUpAndDown()
+    {
+        while (true)
+        {
+            this.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * force, ForceMode.Impulse);
+            yield return new WaitForSeconds(0.55f);
         }
     }
 }

@@ -15,7 +15,7 @@ public class FadeInAndOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (colorT.a  > 0)
+        if (colorT.a  > 0.5)
          {       
             colorT.a -= speedFade * Time.deltaTime;
             this.GetComponent<Image>().color = colorT;

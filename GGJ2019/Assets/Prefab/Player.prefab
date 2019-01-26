@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.23911765, y: 0.36964378, z: -0.09904577, w: 0.8923991}
-  m_LocalPosition: {x: -8.34, y: 6.4, z: -8.05}
+  m_LocalPosition: {x: -9.4, y: 7.3, z: -9.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1920537592}
@@ -44,7 +44,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.26486292, g: 0.5696534, b: 0.6037736, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -60,7 +60,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 209833150062325172}
   - component: {fileID: 209833150062325173}
   - component: {fileID: 209833150062325174}
+  - component: {fileID: 1524620116}
   m_Layer: 0
   m_Name: body
   m_TagString: Player
@@ -188,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02df5cca81f4146ada026239eb7de8b6, type: 2}
+  - {fileID: 2100000, guid: 02e8e7c4a519a4d6f80f61ff89c7a636, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,6 +209,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1524620116
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209833150062325129}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1809740014123824546
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72921022a7c4946aeb13002faf1807ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 2.5
   speedMovement: 3
   joystick: {fileID: 0}
   interaction: {fileID: 0}
@@ -263,6 +284,7 @@ MonoBehaviour:
   safeZone: {fileID: 0}
   minAndMaxDistance: {x: 2, y: 20}
   fog: {fileID: 0}
+  isWalking: 0
 --- !u!65 &31339802042769734
 BoxCollider:
   m_ObjectHideFlags: 0
