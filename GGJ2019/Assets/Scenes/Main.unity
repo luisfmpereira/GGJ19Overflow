@@ -501,6 +501,11 @@ PrefabInstance:
       propertyPath: fog
       value: 
       objectReference: {fileID: 1941170918}
+    - target: {fileID: 2782914431055376508, guid: ad71943fa2b1d46f79f1318d81b14d93,
+        type: 3}
+      propertyPath: willUseSafeZone
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad71943fa2b1d46f79f1318d81b14d93, type: 3}
 --- !u!1 &574778447 stripped
@@ -2482,6 +2487,11 @@ PrefabInstance:
       propertyPath: rightDoor
       value: 
       objectReference: {fileID: 218186899}
+    - target: {fileID: 2368523884201846851, guid: af4fb3b667ba5407495905d65f376206,
+        type: 3}
+      propertyPath: onlyActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4fb3b667ba5407495905d65f376206, type: 3}
 --- !u!1001 &2700012945289324880

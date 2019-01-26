@@ -7,6 +7,7 @@ public class MoveTrigger : MonoBehaviour
     private AudioManager audioManager;
     private int count;
     public bool willOpenDoor;
+    public bool onlyActive;
     [Header("OpenDoor")]
     public GameObject leftDoor;
     public GameObject rightDoor;
@@ -60,14 +61,17 @@ public class MoveTrigger : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(count == 1)
+        if (!onlyActive)
         {
-            audioManager.PlaySound("TriggerUp");
-            this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, 0.05f, this.transform.position.z), 3);
-            iTween.MoveTo(leftDoor, closeLeftDoor);
-            iTween.MoveTo(rightDoor, closeRightDoor);
+            if (count == 1)
+            {
+                audioManager.PlaySound("TriggerUp");
+                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, 0.05f, this.transform.position.z), 3);
+                iTween.MoveTo(leftDoor, closeLeftDoor);
+                iTween.MoveTo(rightDoor, closeRightDoor);
+            }
+            count--;
         }
-        count--;
       
     }
  
