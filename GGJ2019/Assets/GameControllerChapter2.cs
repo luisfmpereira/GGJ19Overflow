@@ -27,6 +27,8 @@ public class GameControllerChapter2 : MonoBehaviour
     public GameObject hide;
     public int phase;
 
+    public GameObject exitCollider;
+
 
     private void Awake()
     {
@@ -70,6 +72,7 @@ public class GameControllerChapter2 : MonoBehaviour
                         yield return new WaitForSeconds(0.3f);
                     }
                     hide.SetActive(true);
+                    exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                 }
