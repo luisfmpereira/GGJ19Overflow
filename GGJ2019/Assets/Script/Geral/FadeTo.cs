@@ -8,6 +8,8 @@ public class FadeTo : MonoBehaviour
     public float speedFade;
     private Color colorT;
     public bool isImage;
+
+    public bool fadeOut;
     private void Awake()
     {
         if(isImage)
@@ -36,6 +38,7 @@ public class FadeTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!fadeOut)
         if (colorT.a < 1)
         {
             colorT.a += speedFade * Time.deltaTime;
@@ -44,6 +47,18 @@ public class FadeTo : MonoBehaviour
             else
                 this.GetComponent<Text>().color = colorT;
 
+        }
+
+        if(fadeOut){
+             if (colorT.a >= 0)
+        {
+            colorT.a -= speedFade * Time.deltaTime;
+            if(isImage)
+            this.GetComponent<Image>().color = colorT;
+            else
+                this.GetComponent<Text>().color = colorT;
+
+        }
         }
     }
 }
