@@ -61,6 +61,7 @@ public class MoveTrigger : MonoBehaviour
         Debug.Log(other);
       
             if (other.CompareTag("Hold")){
+            if(count == 0)
                 if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
                 {
                     audioManager.PlaySound("TriggerDown");
@@ -77,6 +78,7 @@ public class MoveTrigger : MonoBehaviour
                         gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
                     }
                 }
+            count++;
             }
        
       
@@ -85,15 +87,17 @@ public class MoveTrigger : MonoBehaviour
     {
         if (!onlyActive)
         {
-                
-                    audioManager.PlaySound("TriggerUp");
-                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                        new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
-                    iTween.MoveTo(leftDoor, closeLeftDoor);
-                    iTween.MoveTo(rightDoor, closeRightDoor);
-            gameController.GetComponent<GameControllerChapter2>().triggerCount--;
+            if (count == 1)
+            {
+                audioManager.PlaySound("TriggerUp");
+                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                    new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
+                iTween.MoveTo(leftDoor, closeLeftDoor);
+                iTween.MoveTo(rightDoor, closeRightDoor);
+                gameController.GetComponent<GameControllerChapter2>().triggerCount--;
+            }
 
-
+            count--;
         }
       
     }
