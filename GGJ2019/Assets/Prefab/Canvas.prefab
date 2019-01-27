@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 0
+  home: 1
 --- !u!1 &1029573851451151790
 GameObject:
   m_ObjectHideFlags: 0

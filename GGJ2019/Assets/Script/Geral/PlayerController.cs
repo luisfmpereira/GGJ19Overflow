@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         if(willUseSafeZone)
         StartCoroutine(UpdateFog());
+        audioManager.PlaySound("GGJ8");
     }
 
     // Update is called once per frame
@@ -90,7 +91,6 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("ChangeScene"))
         {
-            audioManager.PlaySound("FadeIn");
             SceneManager.LoadScene(other.GetComponent<ChangeScene>().nextScene);
             audioManager.StopSound("Jump");
         }
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         interaction.GetComponentInChildren<Text>().text = "Action";
         last.transform.SetParent(null);
-        isholding = false;
+    isholding = false;
         audioManager.PlaySound("Drop");
     }
 

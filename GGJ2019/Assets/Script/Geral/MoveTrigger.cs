@@ -6,7 +6,7 @@ public class MoveTrigger : MonoBehaviour
 {
     private AudioManager audioManager;
     private int count;
-    private bool actived;
+
     public bool onlyActive;
     [Header("OpenDoor")]
     public bool willOpenDoor;
@@ -24,8 +24,6 @@ public class MoveTrigger : MonoBehaviour
     public bool willChoosePath;
     public GameObject gameController;
     public Material pathMaterial;
-    public bool stage8;
-
 
     Hashtable openLeftDoor = new Hashtable();
     Hashtable openRightDoor = new Hashtable();
@@ -34,7 +32,6 @@ public class MoveTrigger : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         leftClose = leftDoor.transform.position;
         rightClose = rightDoor.transform.position;
@@ -53,15 +50,14 @@ public class MoveTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!actived)
-        {
-            if (other.CompareTag("Hold"))
-            {
+        Debug.Log(other);
+      
+            if (other.CompareTag("Hold")){
                 if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
                 {
                     audioManager.PlaySound("TriggerDown");
@@ -77,56 +73,32 @@ public class MoveTrigger : MonoBehaviour
                         gameController.GetComponent<GameControllerChapter2>().triggerCount++;
                         gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
                     }
-                    actived = true;
                 }
             }
-            if (other.CompareTag("Player"))
-            {
-                if (stage8)
-                {
-                    if (onlyActive)
-                    {
-                        audioManager.PlaySound("TriggerDown");
-                        this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                            new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
-                        if (willOpenDoor)
-                        {
-                            iTween.MoveTo(leftDoor, openLeftDoor);
-                            iTween.MoveTo(rightDoor, openRightDoor);
-                        }
-                        else if (willChoosePath)
-                        {
-                            gameController.GetComponent<GameControllerChapter2>().triggerCount++;
-                            gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
-                        }
-                        actived = true;
-                    }
-                }
-            }
-        }
-
+       
+      
     }
     private void OnTriggerExit(Collider other)
     {
         if (!onlyActive)
         {
-            if (other.CompareTag("Hold"))
-            {
-                audioManager.PlaySound("TriggerUp");
-                this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                    new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
-                iTween.MoveTo(leftDoor, closeLeftDoor);
-                iTween.MoveTo(rightDoor, closeRightDoor);
-                //gameController.GetComponent<GameControllerChapter2>().triggerCount--;
-            }
+                
+                    audioManager.PlaySound("TriggerUp");
+                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                        new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
+                    iTween.MoveTo(leftDoor, closeLeftDoor);
+                    iTween.MoveTo(rightDoor, closeRightDoor);
+                
+
         }
-
+      
     }
-
-    private void MoveTween(Vector3 pos, float time, Hashtable hash)
-    {
+ 
+    private void MoveTween(Vector3 pos, float time, Hashtable hash){
         hash.Clear();
         hash.Add("time", time);
         hash.Add("position", pos);
     }
+
+
 }
