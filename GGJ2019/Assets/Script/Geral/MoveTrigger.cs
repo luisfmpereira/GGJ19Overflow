@@ -82,14 +82,13 @@ public class MoveTrigger : MonoBehaviour
     {
         if (!onlyActive)
         {
-                if (myId == other.GetComponentInParent<BoxId>().Id)
-                {
+                
                     audioManager.PlaySound("TriggerUp");
                     this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
                         new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, this.transform.position.z), 3);
                     iTween.MoveTo(leftDoor, closeLeftDoor);
                     iTween.MoveTo(rightDoor, closeRightDoor);
-                }
+                
 
         }
       

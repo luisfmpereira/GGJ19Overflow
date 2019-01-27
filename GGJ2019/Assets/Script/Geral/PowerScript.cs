@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerScript : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class PowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Global.powerIsActive)
+        {
+            this.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            this.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void FindObjects()
@@ -29,6 +38,10 @@ public class PowerScript : MonoBehaviour
         {
             items.Add(go);
         }
+        if (items.Count == 0)
+            StartCoroutine(endPower());
+
+        else
         StartCoroutine(DisableObjects());
     }
 
@@ -56,6 +69,12 @@ public class PowerScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             items[i].SetActive(true);
         }
+
+    }
+
+    public IEnumerator endPower()
+    {
+        yield return new WaitForSeconds(5);
         Global.powerIsActive = false;
     }
 
