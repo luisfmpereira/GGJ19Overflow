@@ -11,7 +11,7 @@ public class TextManager : MonoBehaviour
 
     public static TextManager instance;
 
-    private bool started = true;
+    private bool started ;
 
     private bool end;
 
@@ -41,28 +41,22 @@ public class TextManager : MonoBehaviour
         {
             colorText.a += 1 * Time.deltaTime;
         }
-        else
-        {
-
-            started = false;
-            colorText.a = 1;
-        }
         if (colorText.a > 0 && end)
         {
-            colorText.a -= 1.1f * Time.deltaTime;
+            colorText.a -= 1 * Time.deltaTime;
         }
     }
     public IEnumerator ShowText(int index, float timeToStart, float timeToDisappear)
-    {
-
+    {   
         yield return new WaitForSeconds(timeToStart);
         this.GetComponent<TextMeshProUGUI>().text = texts[index];
         colorText.a = 0;
-        this.GetComponent<TextMeshProUGUI>().enabled = true;
-        
+        started = true;
+        this.GetComponent<TextMeshProUGUI>().enabled = true;  
         yield return new WaitForSeconds(timeToDisappear - 1);
+        started = false;
         end = true;
-        colorText.a = 0;
+        yield return new WaitForSeconds(1);
         this.GetComponent<TextMeshProUGUI>().enabled = false;
     }
     public void TextStartCoroutine(int index, float timeToStart, float timeToDisappear)
