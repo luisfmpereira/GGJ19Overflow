@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private int count;
     public float force;
     public float speedMovement;
-    public Joystick joystick;
-    public Button interaction;
+    private Joystick joystick;
+    private Button interaction;
     public bool isholding;
     private GameObject CloseObject;
     Vector3 forward, right;
@@ -27,7 +27,12 @@ public class PlayerController : MonoBehaviour
     public bool isWalking;
     private GameObject last;
 
-
+    private void Awake()
+    {
+        joystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
+        interaction = GameObject.Find("InteractionButton").GetComponent<Button>();
+        
+    }
 
 
 
@@ -87,6 +92,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("ChangeScene"))
         {
             SceneManager.LoadScene(other.GetComponent<ChangeScene>().nextScene);
+            audioManager.StopSound("Jump");
         }
     }
 

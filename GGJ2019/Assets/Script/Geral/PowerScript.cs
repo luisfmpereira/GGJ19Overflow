@@ -23,7 +23,7 @@ public class PowerScript : MonoBehaviour
 
     public void FindObjects()
     {
-        audioManager.PlaySound("FadeIn");
+        audioManager.PlaySound("Focus");
         Global.powerIsActive = true;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Disappear"))
         {

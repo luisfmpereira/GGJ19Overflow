@@ -108,7 +108,7 @@ MonoBehaviour:
     randomPitch: 0
     loop: 1
   - name: Jump
-    clip: {fileID: 8300000, guid: ceeb5f9e17902478db9b60b1a9b7ff6b, type: 3}
+    clip: {fileID: 8300000, guid: fa081eaa343494c74895d2a3ae178174, type: 3}
     volume: 0.4
     pitch: 0.5
     randomVolume: 0
