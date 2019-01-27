@@ -526,6 +526,10 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2088867269, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
+      propertyPath: indexStart
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
 --- !u!114 &662437618 stripped
@@ -1074,6 +1078,7 @@ MonoBehaviour:
   hide: {fileID: 2092474525}
   phase: 1
   exitCollider: {fileID: 1861783}
+  indexFrase: 2
 --- !u!1 &1655069155
 GameObject:
   m_ObjectHideFlags: 0

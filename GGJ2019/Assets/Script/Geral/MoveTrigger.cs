@@ -25,6 +25,8 @@ public class MoveTrigger : MonoBehaviour
     public GameObject gameController;
     public Material pathMaterial;
 
+
+
     Hashtable openLeftDoor = new Hashtable();
     Hashtable openRightDoor = new Hashtable();
     Hashtable closeLeftDoor = new Hashtable();
@@ -32,6 +34,7 @@ public class MoveTrigger : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         leftClose = leftDoor.transform.position;
         rightClose = rightDoor.transform.position;

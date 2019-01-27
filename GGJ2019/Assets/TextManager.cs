@@ -46,7 +46,7 @@ public class TextManager : MonoBehaviour
             colorText.a -= 1 * Time.deltaTime;
         }
     }
-    public IEnumerator ShowText(int index, float timeToStart, float timeToDisappear)
+     IEnumerator ShowText(int index, float timeToStart, float timeToDisappear)
     {   
         yield return new WaitForSeconds(timeToStart);
         this.GetComponent<TextMeshProUGUI>().text = texts[index];
@@ -58,6 +58,7 @@ public class TextManager : MonoBehaviour
         end = true;
         yield return new WaitForSeconds(1);
         this.GetComponent<TextMeshProUGUI>().enabled = false;
+        end = false;
     }
     public void TextStartCoroutine(int index, float timeToStart, float timeToDisappear)
     {
