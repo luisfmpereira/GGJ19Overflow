@@ -9,6 +9,7 @@ TagManager:
   - Box
   - Disappear
   - ChangeScene
+  - Npc
   layers:
   - Default
   - TransparentFX

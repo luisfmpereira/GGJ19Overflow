@@ -10,6 +10,7 @@ public class TapToStart : MonoBehaviour
     private Color colorT;
     private TextManager textManager;
     public int indexStart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,6 @@ public class TapToStart : MonoBehaviour
     }
     public void StartText()
     {
-        textManager.TextStartCoroutine(indexStart, 0, 5);
+        textManager.TextStartCoroutine(indexStart, 0, 9);
     }
 }

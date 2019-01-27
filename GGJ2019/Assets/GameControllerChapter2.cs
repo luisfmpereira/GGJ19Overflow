@@ -67,7 +67,7 @@ public class GameControllerChapter2 : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(0.1f);
-            if (phase == 1)
+            if (phase == 1 || phase == 8)
             {
                 if (triggerCount == 1 && !phase1)
                 {
@@ -81,7 +81,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
-                    textManager.TextStartCoroutine(indexFrase, 0, 5);
+                    textManager.TextStartCoroutine(indexFrase, 0, 9);
                     Debug.Log("teste");
                 }
             }
@@ -118,7 +118,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
-                    textManager.TextStartCoroutine(indexFrase, 0, 5);
+                    textManager.TextStartCoroutine(indexFrase, 0, 9);
                 }
             }
             else if(phase == 4)
@@ -144,7 +144,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
-                    textManager.TextStartCoroutine(indexFrase, 0, 5);
+                    textManager.TextStartCoroutine(indexFrase, 0, 9);
                 }
 
             }
@@ -190,7 +190,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
-                    textManager.TextStartCoroutine(indexFrase, 0, 5);
+                    textManager.TextStartCoroutine(indexFrase, 0, 9);
                 }
             }
             

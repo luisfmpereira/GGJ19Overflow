@@ -24,7 +24,7 @@ public class MoveTrigger : MonoBehaviour
     public bool willChoosePath;
     public GameObject gameController;
     public Material pathMaterial;
-
+    public bool stage8;
 
 
     Hashtable openLeftDoor = new Hashtable();
@@ -53,15 +53,17 @@ public class MoveTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
-      
-            if (other.CompareTag("Hold")){
-            if(count == 0)
+
+        if (other.CompareTag("Hold"))
+        {
+            if (count == 0)
+            {
                 if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
                 {
                     audioManager.PlaySound("TriggerDown");
@@ -78,10 +80,35 @@ public class MoveTrigger : MonoBehaviour
                         gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
                     }
                 }
-            count++;
             }
-       
-      
+        }
+        if (other.CompareTag("Player"))
+        {
+            if (stage8)
+            {
+                if (count == 0)
+                {
+                    audioManager.PlaySound("TriggerDown");
+                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                        new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
+                    if (willOpenDoor)
+                    {
+                        iTween.MoveTo(leftDoor, openLeftDoor);
+                        iTween.MoveTo(rightDoor, openRightDoor);
+                    }
+                    else if (willChoosePath)
+                    {
+                        gameController.GetComponent<GameControllerChapter2>().triggerCount++;
+                        gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
+                    }
+                }
+            }
+
+        }
+        count++;
+
+
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -99,10 +126,11 @@ public class MoveTrigger : MonoBehaviour
 
             count--;
         }
-      
+
     }
- 
-    private void MoveTween(Vector3 pos, float time, Hashtable hash){
+
+    private void MoveTween(Vector3 pos, float time, Hashtable hash)
+    {
         hash.Clear();
         hash.Add("time", time);
         hash.Add("position", pos);
