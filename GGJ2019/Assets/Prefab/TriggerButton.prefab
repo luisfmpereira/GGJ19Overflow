@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2368523884201846854}
   - component: {fileID: 2368523884201846855}
   - component: {fileID: 2368523884201846851}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TriggerButton
   m_TagString: TriggerButton
   m_Icon: {fileID: 0}
@@ -114,3 +114,4 @@ MonoBehaviour:
   willChoosePath: 0
   gameController: {fileID: 0}
   pathMaterial: {fileID: 0}
+  stage8: 0
