@@ -12,13 +12,18 @@ public class FadeTo : MonoBehaviour
     public bool fadeOut;
     private void Awake()
     {
-        if(isImage)
-        colorT = this.GetComponent<Image>().color;
+
+
+        if (isImage)
+            colorT = this.GetComponent<Image>().color;
         else
             colorT = this.GetComponent<Text>().color;
-        colorT.a = 0;
-        if(isImage)
-        this.GetComponent<Image>().color = colorT;
+        if (!fadeOut)
+            colorT.a = 0;
+        else
+            colorT.a = 1;
+        if (isImage)
+            this.GetComponent<Image>().color = colorT;
         else
             this.GetComponent<Text>().color = colorT;
     }
@@ -38,27 +43,30 @@ public class FadeTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!fadeOut)
-        if (colorT.a < 1)
+        if (!fadeOut)
         {
-            colorT.a += speedFade * Time.deltaTime;
-            if(isImage)
-            this.GetComponent<Image>().color = colorT;
-            else
-                this.GetComponent<Text>().color = colorT;
+            if (colorT.a < 1)
+            {
+                colorT.a += speedFade * Time.deltaTime;
+                if (isImage)
+                    this.GetComponent<Image>().color = colorT;
+                else
+                    this.GetComponent<Text>().color = colorT;
 
+            }
         }
 
-        if(fadeOut){
-             if (colorT.a >= 0)
+        else if (fadeOut)
         {
-            colorT.a -= speedFade * Time.deltaTime;
-            if(isImage)
-            this.GetComponent<Image>().color = colorT;
-            else
-                this.GetComponent<Text>().color = colorT;
+            if (colorT.a >= 0)
+            {
+                colorT.a -= speedFade * Time.deltaTime;
+                if (isImage)
+                    this.GetComponent<Image>().color = colorT;
+                else
+                    this.GetComponent<Text>().color = colorT;
 
-        }
+            }
         }
     }
 }
