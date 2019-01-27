@@ -74,7 +74,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     iTween.MoveTo(rightDoor, openRightDoor);
                 }
             }
-            else if(phase == 2 || phase == 3)
+            else if(phase == 2 || phase == 3 || phase == 6)
             {
                 if (triggerCount == 1 && !phase1)
                 {
