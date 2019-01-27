@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -493,6 +493,7 @@ MonoBehaviour:
   hide: {fileID: 1385090122}
   phase: 8
   exitCollider: {fileID: 1490813037}
+  indexFrase: 16
 --- !u!4 &618366453
 Transform:
   m_ObjectHideFlags: 0
@@ -718,6 +719,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088867269, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
+      propertyPath: indexStart
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
@@ -1641,11 +1646,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2368523884201846854, guid: af4fb3b667ba5407495905d65f376206,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2b6670b13ab5a49adacafd3c31c748b7, type: 2}
     - target: {fileID: 2368523884201846851, guid: af4fb3b667ba5407495905d65f376206,
         type: 3}
       propertyPath: leftDoor
@@ -1676,6 +1676,11 @@ PrefabInstance:
       propertyPath: onlyActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2368523884201846854, guid: af4fb3b667ba5407495905d65f376206,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b6670b13ab5a49adacafd3c31c748b7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4fb3b667ba5407495905d65f376206, type: 3}
 --- !u!1001 &3228041201311551149

@@ -115,6 +115,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     }
                     phase3 = true;
                     hide.SetActive(true);
+                    exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 5);
@@ -140,6 +141,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     }
                     phase2 = true;
                     hide.SetActive(true);
+                    exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 5);
@@ -185,6 +187,7 @@ public class GameControllerChapter2 : MonoBehaviour
 
                     }
                     hide.SetActive(true);
+                    exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 5);

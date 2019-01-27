@@ -43,7 +43,7 @@ public class MenuManager : MonoBehaviour
     }
 
     IEnumerator WaitForNew(){
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         SceneManager.LoadScene("Chapter1");
     }
 }
