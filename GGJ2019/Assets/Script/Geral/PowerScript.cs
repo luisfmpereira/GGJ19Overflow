@@ -47,7 +47,6 @@ public class PowerScript : MonoBehaviour
         }
         else
         {
-            audioManager.PlaySound("Focus");
             Global.powerIsActive = true;
             if (items.Count == 0)
                 StartCoroutine(endPower());

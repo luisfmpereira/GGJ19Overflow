@@ -261,15 +261,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2088867269, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
-      propertyPath: indexStart
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
-        type: 3}
-      propertyPath: m_text
-      value: Focus as Your Path
-      objectReference: {fileID: 0}
     - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -279,21 +270,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
@@ -2900,6 +2876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228041201329294117, guid: d5abb8f530edf4c83aafc939c53e8ddb,
+        type: 3}
+      propertyPath: sounds.Array.data[7].loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5abb8f530edf4c83aafc939c53e8ddb, type: 3}

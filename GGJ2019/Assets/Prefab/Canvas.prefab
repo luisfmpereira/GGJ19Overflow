@@ -189,95 +189,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2088867267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2647398286829871522}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1029573853394624112}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2088867269}
-        m_MethodName: IsTappedMethod
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2088867264}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7121344335738597528}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1029573852230176443}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2088867269}
-        m_MethodName: StartText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4581622341967013704}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2088867269
@@ -295,7 +207,12 @@ MonoBehaviour:
   isTapped: 0
   fade: {fileID: 1029573851451151790}
   speedFade: 1
-  indexStart: 1
+  indexStart: 5
+  a: {fileID: 1029573853394624112}
+  b: {fileID: 2088867264}
+  c: {fileID: 7121344335738597528}
+  d: {fileID: 1029573852230176443}
+  e: {fileID: 4581622341967013704}
 --- !u!1 &233836460403866335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2071,7 @@ PrefabInstance:
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
       propertyPath: m_text
-      value: 'Chapter #'
+      value: Focus as Your Path
       objectReference: {fileID: 0}
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
@@ -2179,28 +2096,23 @@ PrefabInstance:
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 9
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 8090385682006071465}
-    - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a09f0a2c810c407e8f1412efb34d79c, type: 3}
 --- !u!1 &4581622341967013704 stripped

@@ -6,6 +6,7 @@ public class GameControllerChapter2 : MonoBehaviour
 {
     private AudioSource sound8;
     private AudioSource sound9;
+    private AudioSource focus;
     public float volume8;
     public float volume9;
     public bool happy;
@@ -63,11 +64,16 @@ public class GameControllerChapter2 : MonoBehaviour
     {
         sound8 = GameObject.Find("Sound_8_GGJ8").GetComponent<AudioSource>();
         sound9 = GameObject.Find("Sound_9_10").GetComponent<AudioSource>();
+        focus = GameObject.Find("Sound_7_Focus").GetComponent<AudioSource>();
         StartCoroutine(TriggerPath());
         if (phase == 1)
         {
             audioManager.PlaySound("GGJ8");
             audioManager.PlaySound("10");
+        }
+        if(phase >= 3)
+        {
+            audioManager.PlaySound("Focus");
         }
     }
 
@@ -253,6 +259,15 @@ public class GameControllerChapter2 : MonoBehaviour
         }
         sound8.volume = volume8;
         sound9.volume = volume9;
+
+        if(Global.powerIsActive)
+        {
+            focus.volume = 0;
+        }
+        else
+        {
+            focus.volume = 0.125f;
+        }
     }
 
     void ChangeToHappy()

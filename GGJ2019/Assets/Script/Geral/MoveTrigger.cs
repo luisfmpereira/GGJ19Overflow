@@ -24,6 +24,7 @@ public class MoveTrigger : MonoBehaviour
     public bool willChoosePath;
     public GameObject gameController;
     public Material pathMaterial;
+    public bool stage8;
 
     Hashtable openLeftDoor = new Hashtable();
     Hashtable openRightDoor = new Hashtable();
@@ -75,6 +76,15 @@ public class MoveTrigger : MonoBehaviour
                     }
                 }
             }
+        if(stage8)
+        {
+            if(other.CompareTag("Player"))
+            {
+                gameController.GetComponent<GameControllerChapter2>().triggerCount++;
+                gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
+            }
+
+        }
        
       
     }

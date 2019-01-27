@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         if(willUseSafeZone)
         StartCoroutine(UpdateFog());
         audioManager.PlaySound("GGJ8");
+
     }
 
     // Update is called once per frame

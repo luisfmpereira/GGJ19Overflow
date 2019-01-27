@@ -78,14 +78,14 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 0
+    loop: 1
   - name: Talk
     clip: {fileID: 8300000, guid: 849f66fd712e94eeca045639b8b7d21e, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 0
+    loop: 1
   - name: FadeIn
     clip: {fileID: 8300000, guid: ff62dab4474e24e6a83031751e01a3a1, type: 3}
     volume: 1
@@ -115,6 +115,27 @@ MonoBehaviour:
     randomPitch: 0
     loop: 1
   - name: Jump
+    clip: {fileID: 8300000, guid: b3e80609972e34585aba44182da9eb9d, type: 3}
+    volume: 0.6
+    pitch: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: AirSfx
+    clip: {fileID: 8300000, guid: 05a34b895f7e54369b1c0d725b40f79f, type: 3}
+    volume: 0.6
+    pitch: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: Nature
+    clip: {fileID: 8300000, guid: 218326dc0204a44cf93dd88072f5e262, type: 3}
+    volume: 0.6
+    pitch: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: OceanWave
     clip: {fileID: 8300000, guid: b3e80609972e34585aba44182da9eb9d, type: 3}
     volume: 0.6
     pitch: 0.5

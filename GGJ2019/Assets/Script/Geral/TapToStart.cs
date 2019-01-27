@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TapToStart : MonoBehaviour
+using UnityEngine.EventSystems;
+public class TapToStart : MonoBehaviour, IPointerDownHandler
 {
     public bool isTapped;
     public GameObject fade;
@@ -10,6 +11,12 @@ public class TapToStart : MonoBehaviour
     private Color colorT;
     private TextManager textManager;
     public int indexStart;
+    public GameObject a;
+    public GameObject b;
+    public GameObject c;
+    public GameObject d;
+    public GameObject e;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +25,6 @@ public class TapToStart : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void IsTappedMethod()
     {
@@ -30,5 +33,16 @@ public class TapToStart : MonoBehaviour
     public void StartText()
     {
         textManager.TextStartCoroutine(indexStart, 0, 9);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        IsTappedMethod();
+        StartText();
+        a.SetActive(true);
+        b.SetActive(false);
+        c.SetActive(false);
+        d.SetActive(false);
+        e.SetActive(false);
     }
 }
