@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         if(willUseSafeZone)
         StartCoroutine(UpdateFog());
+        audioManager.PlaySound("GGJ8");
     }
 
     // Update is called once per frame
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+       
         Vector3 rightMovent = joystick.Horizontal * speedMovement * Time.deltaTime * right;
         Vector3 upMovement = joystick.Vertical * speedMovement * Time.deltaTime * forward;
 
@@ -60,11 +62,13 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine("MoveUpAndDown");
             isWalking = true;
+            audioManager.PlaySound("Jump");
         }
         if ((rightMovent == Vector3.zero && upMovement == Vector3.zero) && isWalking)
         {
             StopCoroutine("MoveUpAndDown");      
             isWalking = false;
+            audioManager.StopSound("Jump");
         }
         transform.position += rightMovent;
         transform.position += upMovement;

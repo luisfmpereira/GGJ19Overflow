@@ -8,11 +8,12 @@ public class PowerScript : MonoBehaviour
     public List<GameObject> itemsBack;
     public float cd;
     private bool callItemBack;
+    private AudioManager audioManager;
     
 
     void Start()
     {
-
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class PowerScript : MonoBehaviour
 
     public void FindObjects()
     {
+        audioManager.PlaySound("FadeIn");
         Global.powerIsActive = true;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Disappear"))
         {
