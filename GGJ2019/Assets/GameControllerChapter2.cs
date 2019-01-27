@@ -29,9 +29,14 @@ public class GameControllerChapter2 : MonoBehaviour
 
     public GameObject exitCollider;
 
+    [Header("Frase")]
+    public int indexFrase;
+    private TextManager textManager;
+
 
     private void Awake()
     {
+        textManager = GameObject.Find("TextManagerText").GetComponent<TextManager>();
         leftClose = leftDoor.transform.position;
         rightClose = rightDoor.transform.position;
         leftOpen = leftDoor.transform.position;
@@ -71,10 +76,13 @@ public class GameControllerChapter2 : MonoBehaviour
                         path[i].GetComponent<Renderer>().material = useMAt;
                         yield return new WaitForSeconds(0.3f);
                     }
+                    phase1 = true;
                     hide.SetActive(true);
                     exitCollider.SetActive(false);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
+                    textManager.TextStartCoroutine(indexFrase, 0, 5);
+                    Debug.Log("teste");
                 }
             }
             else if(phase == 2 || phase == 3 || phase == 6)
@@ -97,7 +105,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     }
                     phase2 = true;
                 }
-                else if (triggerCount == 3)
+                else if (triggerCount == 3 && !phase3)
                 {
                     for (int i = 8; i < 12; i++)
                     {
@@ -105,9 +113,11 @@ public class GameControllerChapter2 : MonoBehaviour
                         path[i].GetComponent<Renderer>().material = useMAt;
 
                     }
+                    phase3 = true;
                     hide.SetActive(true);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
+                    textManager.TextStartCoroutine(indexFrase, 0, 5);
                 }
             }
             else if(phase == 4)
@@ -132,6 +142,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     hide.SetActive(true);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
+                    textManager.TextStartCoroutine(indexFrase, 0, 5);
                 }
 
             }
@@ -155,7 +166,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     }
                     phase2 = true;
                 }
-                else if (triggerCount == 3)
+                else if (triggerCount == 3 && !phase3)
                 {
                     for (int i = 8; i < 12; i++)
                     {
@@ -163,7 +174,7 @@ public class GameControllerChapter2 : MonoBehaviour
                         path[i].GetComponent<Renderer>().material = useMAt;
 
                     }
-       
+                    phase3 = true;
                 }
                 else if (triggerCount == 4)
                 {
@@ -176,6 +187,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     hide.SetActive(true);
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
+                    textManager.TextStartCoroutine(indexFrase, 0, 5);
                 }
             }
             
