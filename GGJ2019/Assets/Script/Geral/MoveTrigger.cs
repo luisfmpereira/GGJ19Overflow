@@ -56,8 +56,7 @@ public class MoveTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
-        if (count == 0)
-        {
+      
             if (other.CompareTag("Hold")){
                 if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
                 {
@@ -76,8 +75,6 @@ public class MoveTrigger : MonoBehaviour
                     }
                 }
             }
-        }
-        count++;
        
       
     }
@@ -85,8 +82,6 @@ public class MoveTrigger : MonoBehaviour
     {
         if (!onlyActive)
         {
-            if (count == 1)
-            {
                 if (myId == other.GetComponentInParent<BoxId>().Id)
                 {
                     audioManager.PlaySound("TriggerUp");
@@ -95,8 +90,7 @@ public class MoveTrigger : MonoBehaviour
                     iTween.MoveTo(leftDoor, closeLeftDoor);
                     iTween.MoveTo(rightDoor, closeRightDoor);
                 }
-            }
-            count--;
+
         }
       
     }
