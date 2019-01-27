@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter8.unity
     guid: 9c207630d2ca040f5bcccf0d02f24267
+  - enabled: 1
+    path: Assets/Scenes/Endgame.unity
+    guid: ffc9aff17d1fa47f49d132e24f1648a5
   m_configObjects: {}
