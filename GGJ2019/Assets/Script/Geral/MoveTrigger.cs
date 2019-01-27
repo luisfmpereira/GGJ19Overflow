@@ -6,7 +6,7 @@ public class MoveTrigger : MonoBehaviour
 {
     private AudioManager audioManager;
     private int count;
-
+    private bool actived;
     public bool onlyActive;
     [Header("OpenDoor")]
     public bool willOpenDoor;
@@ -58,56 +58,59 @@ public class MoveTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-
-        if (other.CompareTag("Hold"))
+        if (!actived)
         {
-            if (count == 0)
-            {
-                if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
-                {
-                    audioManager.PlaySound("TriggerDown");
-                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                        new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
-                    if (willOpenDoor)
-                    {
-                        iTween.MoveTo(leftDoor, openLeftDoor);
-                        iTween.MoveTo(rightDoor, openRightDoor);
-                    }
-                    else if (willChoosePath)
-                    {
-                        gameController.GetComponent<GameControllerChapter2>().triggerCount++;
-                        gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
-                    }
-                }
-            }
-        }
-        if (other.CompareTag("Player"))
-        {
-            if (stage8)
+            if (other.CompareTag("Hold"))
             {
                 if (count == 0)
                 {
-                    audioManager.PlaySound("TriggerDown");
-                    this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
-                        new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
-                    if (willOpenDoor)
+                    if (myId == other.gameObject.GetComponentInParent<BoxId>().Id)
                     {
-                        iTween.MoveTo(leftDoor, openLeftDoor);
-                        iTween.MoveTo(rightDoor, openRightDoor);
-                    }
-                    else if (willChoosePath)
-                    {
-                        gameController.GetComponent<GameControllerChapter2>().triggerCount++;
-                        gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
+                        audioManager.PlaySound("TriggerDown");
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                            new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
+                        if (willOpenDoor)
+                        {
+                            iTween.MoveTo(leftDoor, openLeftDoor);
+                            iTween.MoveTo(rightDoor, openRightDoor);
+                        }
+                        else if (willChoosePath)
+                        {
+                            gameController.GetComponent<GameControllerChapter2>().triggerCount++;
+                            gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
+                        }
+                        actived = true;
+                        count++;
                     }
                 }
             }
+            if (other.CompareTag("Player"))
+            {
+                if (stage8)
+                {
+                    if (onlyActive)
+                    {
+                        audioManager.PlaySound("TriggerDown");
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position,
+                            new Vector3(this.transform.position.x, this.transform.position.y - 0.1f, this.transform.position.z), 3);
+                        if (willOpenDoor)
+                        {
+                            iTween.MoveTo(leftDoor, openLeftDoor);
+                            iTween.MoveTo(rightDoor, openRightDoor);
+                        }
+                        else if (willChoosePath)
+                        {
+                            gameController.GetComponent<GameControllerChapter2>().triggerCount++;
+                            gameController.GetComponent<GameControllerChapter2>().useMAt = pathMaterial;
+                        }
+                        actived = true;
+                    }
+                }
+
+            }
+           
 
         }
-        count++;
-
-
 
     }
     private void OnTriggerExit(Collider other)
@@ -122,11 +125,12 @@ public class MoveTrigger : MonoBehaviour
                 iTween.MoveTo(leftDoor, closeLeftDoor);
                 iTween.MoveTo(rightDoor, closeRightDoor);
                 gameController.GetComponent<GameControllerChapter2>().triggerCount--;
+                count--;
             }
 
-            count--;
-        }
 
+        }
+       
     }
 
     private void MoveTween(Vector3 pos, float time, Hashtable hash)

@@ -640,6 +640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40458743d947b472189760fb23d540bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume8: 0
+  volume9: 0
+  happy: 0
+  sad: 0
   path:
   - {fileID: 142067131}
   - {fileID: 1122214153}
@@ -935,6 +939,11 @@ PrefabInstance:
       propertyPath: itemsFase8.Array.data[3]
       value: 
       objectReference: {fileID: 1374048094}
+    - target: {fileID: 1029573851378964567, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: indexSec
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
 --- !u!114 &1061346072 stripped
