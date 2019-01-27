@@ -1802,6 +1802,36 @@ PrefabInstance:
       propertyPath: indexStart
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_text
+      value: Searching the Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581622341967013710, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
 --- !u!114 &1235322828 stripped
@@ -2345,6 +2375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40458743d947b472189760fb23d540bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume8: 0
+  volume9: 0
+  happy: 0
+  sad: 0
   path:
   - {fileID: 2121358948}
   - {fileID: 2121358947}
