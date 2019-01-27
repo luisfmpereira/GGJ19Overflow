@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -167,6 +167,7 @@ MonoBehaviour:
   timeToClose: 3
   timeToOpen: 3
   hide: {fileID: 686034776}
+  phase: 2
 --- !u!4 &233118890
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,12 +1242,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1929,12 +1930,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2207,22 +2208,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6768737891451798367, guid: 71da9b347a180492a8a10a4291fb9895,
+    - target: {fileID: 7791532881565523226, guid: 71da9b347a180492a8a10a4291fb9895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
