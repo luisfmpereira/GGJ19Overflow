@@ -321,6 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  itemsBack: []
+  cd: 0
 --- !u!114 &1029573851378964570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1029573851624999396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1140,7 +1142,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Power
+  m_Text: Focus
 --- !u!114 &1029573852896999581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,7 +1192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000024796, y: 0.000005722}
+  m_AnchoredPosition: {x: -0.000022888184, y: 0.0000038146973}
   m_SizeDelta: {x: -16.7, y: -17.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1029573852904869905

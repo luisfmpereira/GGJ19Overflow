@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1429545643353324891}
   - component: {fileID: 8025769133027095593}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPC 2
   m_TagString: Disappear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13dd3a27c949e4384a73ee331d1c486b, type: 2}
+  - {fileID: 2100000, guid: 02b3a5f316bf646a082378dc67097a3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
