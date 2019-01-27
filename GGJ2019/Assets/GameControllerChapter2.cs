@@ -132,7 +132,7 @@ public class GameControllerChapter2 : MonoBehaviour
                 }
 
             }
-            else if (phase == 4)
+            else if (phase == 4 || phase == 7)
             {
                 if (triggerCount == 1 && !phase1)
                 {

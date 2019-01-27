@@ -57,7 +57,7 @@ public class PowerScript : MonoBehaviour
             }
         }
         callItemBack = true;
-
+        Global.powerIsActive = false;
     }
 
     public IEnumerator CallBack()
