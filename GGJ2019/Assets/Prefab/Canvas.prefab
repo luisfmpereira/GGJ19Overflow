@@ -213,6 +213,7 @@ MonoBehaviour:
   c: {fileID: 7121344335738597528}
   d: {fileID: 1029573852230176443}
   e: {fileID: 4581622341967013704}
+  f: {fileID: 2647398286829871522}
 --- !u!1 &233836460403866335
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1029573851378964564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2071,7 +2072,7 @@ PrefabInstance:
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
       propertyPath: m_text
-      value: Focus as Your Path
+      value: When Life Gets Tough
       objectReference: {fileID: 0}
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
@@ -2096,7 +2097,7 @@ PrefabInstance:
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6807794407773124119, guid: 0a09f0a2c810c407e8f1412efb34d79c,
         type: 3}

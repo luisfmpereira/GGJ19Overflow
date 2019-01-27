@@ -16,6 +16,7 @@ public class TapToStart : MonoBehaviour, IPointerDownHandler
     public GameObject c;
     public GameObject d;
     public GameObject e;
+    public GameObject f;
 
 
     // Start is called before the first frame update
@@ -44,5 +45,6 @@ public class TapToStart : MonoBehaviour, IPointerDownHandler
         c.SetActive(false);
         d.SetActive(false);
         e.SetActive(false);
+        f.SetActive(false);
     }
 }

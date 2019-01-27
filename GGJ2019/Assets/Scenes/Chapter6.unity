@@ -1719,6 +1719,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1029573851378964565, guid: 0f93644dbfb184a09968135a2e335e79,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2088867269, guid: 0f93644dbfb184a09968135a2e335e79, type: 3}
       propertyPath: indexStart
       value: 11
