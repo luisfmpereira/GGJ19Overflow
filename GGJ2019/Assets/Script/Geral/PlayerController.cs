@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         if(willUseSafeZone)
         StartCoroutine(UpdateFog());
-        audioManager.PlaySound("GGJ8");
     }
 
     // Update is called once per frame

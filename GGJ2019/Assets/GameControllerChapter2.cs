@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GameControllerChapter2 : MonoBehaviour
 {
-
+    private AudioSource sound8;
+    private AudioSource sound9;
+    public float volume8;
+    public float volume9;
+    public bool happy;
+    public bool sad;
     public List<GameObject> path;
     public int triggerCount;
     public Material useMAt;
@@ -26,7 +31,7 @@ public class GameControllerChapter2 : MonoBehaviour
     private bool phase4;
     public GameObject hide;
     public int phase;
-
+    private AudioManager audioManager;
     public GameObject exitCollider;
 
     [Header("Frase")]
@@ -36,6 +41,7 @@ public class GameControllerChapter2 : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         textManager = GameObject.Find("TextManagerText").GetComponent<TextManager>();
         leftClose = leftDoor.transform.position;
         rightClose = rightDoor.transform.position;
@@ -43,7 +49,8 @@ public class GameControllerChapter2 : MonoBehaviour
         rightOpen = rightDoor.transform.position;
         leftOpen.z += 1.8f;
         rightOpen.z -= 1.8f;
-
+        volume8 = 0.6f;
+        volume9 = 0;
 
 
         MoveTween(leftOpen, timeToOpen, openLeftDoor);
@@ -54,17 +61,20 @@ public class GameControllerChapter2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sound8 = GameObject.Find("Sound_8_GGJ8").GetComponent<AudioSource>();
+        sound9 = GameObject.Find("Sound_9_10").GetComponent<AudioSource>();
         StartCoroutine(TriggerPath());
+        if (phase == 1)
+        {
+            audioManager.PlaySound("GGJ8");
+            audioManager.PlaySound("10");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     IEnumerator TriggerPath()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(0.1f);
             if (phase == 1 || phase == 8)
@@ -82,10 +92,11 @@ public class GameControllerChapter2 : MonoBehaviour
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 9);
-                    Debug.Log("teste");
+                    ChangeToHappy();
+
                 }
             }
-            else if(phase == 2 || phase == 3 || phase == 6)
+            else if (phase == 2 || phase == 3 || phase == 6)
             {
                 if (triggerCount == 1 && !phase1)
                 {
@@ -119,9 +130,10 @@ public class GameControllerChapter2 : MonoBehaviour
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 9);
+                    ChangeToHappy();
                 }
             }
-            else if(phase == 4)
+            else if (phase == 4)
             {
                 if (triggerCount == 1 && !phase1)
                 {
@@ -145,6 +157,7 @@ public class GameControllerChapter2 : MonoBehaviour
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 9);
+                    ChangeToHappy();
                 }
 
             }
@@ -191,17 +204,64 @@ public class GameControllerChapter2 : MonoBehaviour
                     iTween.MoveTo(leftDoor, openLeftDoor);
                     iTween.MoveTo(rightDoor, openRightDoor);
                     textManager.TextStartCoroutine(indexFrase, 0, 9);
+                    ChangeToHappy();
                 }
             }
-            
+
         }
 
-           
+
     }
     private void MoveTween(Vector3 pos, float time, Hashtable hash)
     {
         hash.Clear();
         hash.Add("time", time);
         hash.Add("position", pos);
+    }
+
+    private void Update()
+    {
+        if(happy)
+        {
+            if(audioManager.sounds[8].volume > 0)
+            {
+                volume8 -= Time.deltaTime * 0.3f;
+            }
+            if(audioManager.sounds[9].volume < 0.6)
+            {
+                volume9 += Time.deltaTime * 0.1f;
+            }
+            if(audioManager.sounds[8].volume <= 0 && audioManager.sounds[9].volume >= 0.6)
+            {
+                happy = false;
+            }
+        }
+        if (sad)
+        {
+            if (audioManager.sounds[9].volume > 0)
+            {
+                volume8 -= Time.deltaTime * 0.3f;
+            }
+            if (audioManager.sounds[8].volume < 0.6)
+            {
+                volume9 += Time.deltaTime * 0.1f;
+            }
+            if (audioManager.sounds[9].volume <= 0 && audioManager.sounds[8].volume >= 0.6)
+            {
+                sad = false;
+            }
+        }
+        sound8.volume = volume8;
+        sound9.volume = volume9;
+    }
+
+    void ChangeToHappy()
+    {
+        happy = true;
+    }
+
+    void ChangeToSad()
+    {
+        sad = true;
     }
 }

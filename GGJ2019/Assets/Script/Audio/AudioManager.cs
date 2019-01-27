@@ -47,8 +47,7 @@ public class AudioManager : MonoBehaviour
 
 	public static AudioManager instance;
 
-	[SerializeField]
-	Sound[] sounds;
+	public Sound[] sounds;
 
 
 

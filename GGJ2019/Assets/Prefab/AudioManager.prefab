@@ -102,15 +102,22 @@ MonoBehaviour:
     loop: 0
   - name: GGJ8
     clip: {fileID: 8300000, guid: 6b709f4fa39984f27ab4d4aaccb8757d, type: 3}
-    volume: 1
+    volume: 0.6
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: 10
+    clip: {fileID: 8300000, guid: c83e6b51fb1724a248c9802f556a96fb, type: 3}
+    volume: 0
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 1
   - name: Jump
-    clip: {fileID: 8300000, guid: fa081eaa343494c74895d2a3ae178174, type: 3}
+    clip: {fileID: 8300000, guid: b3e80609972e34585aba44182da9eb9d, type: 3}
     volume: 0.6
-    pitch: 0.6
+    pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 1
