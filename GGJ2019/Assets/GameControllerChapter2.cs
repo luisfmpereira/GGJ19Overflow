@@ -23,7 +23,9 @@ public class GameControllerChapter2 : MonoBehaviour
     private bool phase1;
     private bool phase2;
     private bool phase3;
+    private bool phase4;
     public GameObject hide;
+    public int phase;
 
 
     private void Awake()
@@ -58,37 +60,125 @@ public class GameControllerChapter2 : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(0.1f);
-            if(triggerCount == 1 && !phase1)
+            if (phase == 1)
             {
-                for (int i = 0; i < 4; i++)
+                if (triggerCount == 1 && !phase1)
                 {
-                    path[i].GetComponent<Renderer>().material = useMAt;
-                    yield return new WaitForSeconds(0.3f);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    hide.SetActive(true);
+                    iTween.MoveTo(leftDoor, openLeftDoor);
+                    iTween.MoveTo(rightDoor, openRightDoor);
                 }
-                phase1 = true;
             }
-            else if (triggerCount == 2 && !phase2)
+            else if(phase == 2 || phase == 3)
             {
-                for (int i = 4; i < 8; i++)
+                if (triggerCount == 1 && !phase1)
                 {
-                    path[i].GetComponent<Renderer>().material = useMAt;
-                    yield return new WaitForSeconds(0.3f);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    phase1 = true;
                 }
-                phase2 = true;
+                else if (triggerCount == 2 && !phase2)
+                {
+                    for (int i = 4; i < 8; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    phase2 = true;
+                }
+                else if (triggerCount == 3)
+                {
+                    for (int i = 8; i < 12; i++)
+                    {
+                        yield return new WaitForSeconds(0.3f);
+                        path[i].GetComponent<Renderer>().material = useMAt;
+
+                    }
+                    hide.SetActive(true);
+                    iTween.MoveTo(leftDoor, openLeftDoor);
+                    iTween.MoveTo(rightDoor, openRightDoor);
+                }
             }
-            else if (triggerCount == 3)
+            else if(phase == 4)
             {
-                for (int i = 8; i < 12; i++)
+                if (triggerCount == 1 && !phase1)
                 {
-                    yield return new WaitForSeconds(0.3f);
-                    path[i].GetComponent<Renderer>().material = useMAt;
-                    
+                    for (int i = 0; i < 6; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    phase1 = true;
                 }
-                hide.SetActive(true);
-                iTween.MoveTo(leftDoor, openLeftDoor);
-                iTween.MoveTo(rightDoor, openRightDoor);
+                else if (triggerCount == 2 && !phase2)
+                {
+                    for (int i = 6; i < 12; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    phase2 = true;
+                    hide.SetActive(true);
+                    iTween.MoveTo(leftDoor, openLeftDoor);
+                    iTween.MoveTo(rightDoor, openRightDoor);
+                }
+
             }
+            else if (phase == 4)
+            {
+                if (triggerCount == 1 && !phase1)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    phase1 = true;
+                }
+                else if (triggerCount == 2 && !phase2)
+                {
+                    for (int i = 4; i < 8; i++)
+                    {
+                        path[i].GetComponent<Renderer>().material = useMAt;
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                    phase2 = true;
+                }
+                else if (triggerCount == 3)
+                {
+                    for (int i = 8; i < 12; i++)
+                    {
+                        yield return new WaitForSeconds(0.3f);
+                        path[i].GetComponent<Renderer>().material = useMAt;
+
+                    }
+       
+                }
+                else if (triggerCount == 4)
+                {
+                    for (int i = 12; i < 16; i++)
+                    {
+                        yield return new WaitForSeconds(0.3f);
+                        path[i].GetComponent<Renderer>().material = useMAt;
+
+                    }
+                    hide.SetActive(true);
+                    iTween.MoveTo(leftDoor, openLeftDoor);
+                    iTween.MoveTo(rightDoor, openRightDoor);
+                }
+            }
+            
         }
+
+           
     }
     private void MoveTween(Vector3 pos, float time, Hashtable hash)
     {
