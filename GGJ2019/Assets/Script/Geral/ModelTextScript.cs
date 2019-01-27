@@ -17,7 +17,7 @@ public class ModelTextScript : MonoBehaviour
     {
         text = this.GetComponent<TextMeshProUGUI>();
         if (changeName)
-            this.text.text = "Chapter " + (SceneManager.GetActiveScene().buildIndex + 1);
+            this.text.text = "Chapter " + (SceneManager.GetActiveScene().buildIndex);
     }
     private void OnEnable()
     {

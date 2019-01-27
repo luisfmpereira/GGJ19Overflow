@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private int count;
     public float force;
     public float speedMovement;
-    private Joystick joystick;
-    private Button interaction;
+    public Joystick joystick;
+    public Button interaction;
     public bool isholding;
     private GameObject CloseObject;
     Vector3 forward, right;
@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
-        interaction = GameObject.Find("InteractionButton").GetComponent<Button>();
+       //joystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
+       // interaction = GameObject.Find("InteractionButton").GetComponent<Button>();
         
     }
 
