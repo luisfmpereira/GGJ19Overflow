@@ -7,8 +7,17 @@ public class ChangeScene : MonoBehaviour
 {
     public int nextScene;
 
+
     public void LoadScene(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
+       
+    }
+    private void Awake()
+    {
+    }
+    private void Start()
+    {
+
     }
 }

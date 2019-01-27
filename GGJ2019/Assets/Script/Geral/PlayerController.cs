@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("ChangeScene"))
         {
+            audioManager.PlaySound("FadeIn");
             SceneManager.LoadScene(other.GetComponent<ChangeScene>().nextScene);
             audioManager.StopSound("Jump");
         }

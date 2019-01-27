@@ -8,10 +8,12 @@ public class TapToStart : MonoBehaviour
     public GameObject fade;
     public float speedFade;
     private Color colorT;
+    private TextManager textManager;
+    public int indexStart;
     // Start is called before the first frame update
     void Start()
     {
-
+        textManager = GameObject.Find("TextManagerText").GetComponent<TextManager>();
     }
 
     // Update is called once per frame
@@ -23,5 +25,9 @@ public class TapToStart : MonoBehaviour
     public void IsTappedMethod()
     {
         fade.GetComponent<FadeInAndOut>().change = 0;
+    }
+    public void StartText()
+    {
+        textManager.TextStartCoroutine(indexStart, 0, 5);
     }
 }
